@@ -95,7 +95,7 @@ export const importMCMAccountAction = (
         const account: Account = {
             name,
             type: 'imported',
-            faddress: address,
+            faddress: '0x' + Buffer.from(address).toString('hex').slice(0, 40),
             balance: '0',
             tag,
             seed,
@@ -141,7 +141,7 @@ export const bulkImportMCMAccountsAction = (
             const newAccount: Account = {
                 name: account.name,
                 type: 'imported',
-                faddress: account.address,
+                faddress: '0x' + Buffer.from(account.address).toString('hex').slice(0, 40),
                 balance: '0',
                 tag: account.tag,
                 seed: account.seed,

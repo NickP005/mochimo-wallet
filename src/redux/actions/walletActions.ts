@@ -116,7 +116,7 @@ export const createAccountAction = (name?: string): AppThunk<Account> => async (
         const account: Account = {
             name: name || 'Account ' + (accountIndex + 1),
             type: 'standard' as const,
-            faddress: Buffer.from(w.address).toString('hex'),
+            faddress: '0x' + Buffer.from(w.address).toString('hex').slice(0, 40),
             balance: '0',
             index: accountIndex,
             tag: w.tag,
@@ -369,7 +369,7 @@ export const importAccountsFromMcmAction = createAsyncThunk(
                 return {
                     name: entry.name || `Imported Account ${index + 1}`,
                     type: source === 'mnemonic' ? 'standard' : 'imported',
-                    faddress: entry.address,
+                    faddress: '0x' + Buffer.from(entry.address).toString('hex').slice(0, 40),
                     balance: '0',
                     index: source === 'mnemonic' ? currentHighestIndex + 1 + index : undefined, // Continue from current highest
                     tag: tag,
