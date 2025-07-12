@@ -15,7 +15,8 @@ export class MeshNetworkService implements NetworkService {
     }
 
     getAccountBalance(address: string): Promise<any> {
-        return this.apiClient.getAccountBalance(address);
+        const addr = address.startsWith('0x') ? address : '0x' + address.slice(0, 40);
+        return this.apiClient.getAccountBalance(addr);
     }
     getMempoolTransactions(): Promise<any> {
         return this.apiClient.getMempoolTransactions();
@@ -62,7 +63,9 @@ export class MeshNetworkService implements NetworkService {
         max_block?: number;
         status?: string;
     }): Promise<any> {
-        return this.apiClient.searchTransactionsByAddress(address, options);
+        // Forza address a 0x + 40 caratteri
+        const addr = address.startsWith('0x') ? address : '0x' + address.slice(0, 40);
+        return this.apiClient.searchTransactionsByAddress(addr, options);
     }
     searchTransactionsByBlock(blockIdentifier: any, options?: {
         limit?: number;
@@ -95,7 +98,8 @@ export class MeshNetworkService implements NetworkService {
         this.apiClient = new MochimoApiClient(apiUrl);
     }
     getBalance(tag: string): Promise<string> {
-        return this.apiClient.getAccountBalance(tag).then(res=>{
+        // tag è un tag, non un address, quindi va risolto altrove
+        return this.apiClient.getAccountBalance(tag.startsWith('0x') ? tag : '0x' + tag).then(res=>{
             return res.balances[0].value
         }).catch(err=>{
             if(err.message.includes('Account not found')){
@@ -106,7 +110,8 @@ export class MeshNetworkService implements NetworkService {
     }
 
     resolveTag(tag: string): Promise<TagResolveResponse> {
-        return this.apiClient.resolveTag("0x"+tag).then(res => {
+        const tagHex = tag.startsWith('0x') ? tag : '0x' + tag;
+        return this.apiClient.resolveTag(tagHex).then(res => {
             return {
                 success: true,
                 unanimous: true,
