@@ -17,4 +17,7 @@ export declare class LocalStorage implements Storage {
     saveHighestIndex(index: number): Promise<void>;
     loadHighestIndex(): Promise<number>;
     clear(): Promise<void>;
+    setItem(key: string, value: string): Promise<void>;
+    getItem(key: string): Promise<string | null>;
+    removeItem(key: string): Promise<void>;
 }

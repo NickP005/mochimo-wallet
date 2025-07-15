@@ -9,7 +9,7 @@ export declare const createWalletAction: import('@reduxjs/toolkit').AsyncThunk<{
     mnemonic?: string;
 }, {
     state?: unknown;
-    dispatch?: import('redux-thunk').ThunkDispatch<unknown, unknown, import('redux').UnknownAction>;
+    dispatch?: import('@reduxjs/toolkit').ThunkDispatch<unknown, unknown, import('@reduxjs/toolkit').UnknownAction>;
     extra?: unknown;
     rejectValue?: unknown;
     serializedErrorType?: unknown;
@@ -32,7 +32,7 @@ export declare const importFromMcmFileAction: import('@reduxjs/toolkit').AsyncTh
     importedCount: number;
 }, ImportOptions, {
     state?: unknown;
-    dispatch?: import('redux-thunk').ThunkDispatch<unknown, unknown, import('redux').UnknownAction>;
+    dispatch?: import('@reduxjs/toolkit').ThunkDispatch<unknown, unknown, import('@reduxjs/toolkit').UnknownAction>;
     extra?: unknown;
     rejectValue?: unknown;
     serializedErrorType?: unknown;
@@ -46,7 +46,7 @@ export declare const importAccountsFromMcmAction: import('@reduxjs/toolkit').Asy
     importedCount: number;
 }, ImportAccountsOptions, {
     state?: unknown;
-    dispatch?: import('redux-thunk').ThunkDispatch<unknown, unknown, import('redux').UnknownAction>;
+    dispatch?: import('@reduxjs/toolkit').ThunkDispatch<unknown, unknown, import('@reduxjs/toolkit').UnknownAction>;
     extra?: unknown;
     rejectValue?: unknown;
     serializedErrorType?: unknown;

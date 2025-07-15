@@ -39,8 +39,8 @@ export declare const selectWalletStatus: ((state: {
     dependencyRecomputations: () => number;
     resetDependencyRecomputations: () => void;
 } & {
-    argsMemoize: typeof import('reselect').weakMapMemoize;
-    memoize: typeof import('reselect').weakMapMemoize;
+    argsMemoize: typeof import('@reduxjs/toolkit').weakMapMemoize;
+    memoize: typeof import('@reduxjs/toolkit').weakMapMemoize;
 };
 export declare const selectWalletError: ((state: {
     wallet: import('../types/state').WalletState;
@@ -65,8 +65,8 @@ export declare const selectWalletError: ((state: {
     dependencyRecomputations: () => number;
     resetDependencyRecomputations: () => void;
 } & {
-    argsMemoize: typeof import('reselect').weakMapMemoize;
-    memoize: typeof import('reselect').weakMapMemoize;
+    argsMemoize: typeof import('@reduxjs/toolkit').weakMapMemoize;
+    memoize: typeof import('@reduxjs/toolkit').weakMapMemoize;
 };
 export declare const selectNetwork: ((state: {
     wallet: import('../types/state').WalletState;
@@ -91,6 +91,6 @@ export declare const selectNetwork: ((state: {
     dependencyRecomputations: () => number;
     resetDependencyRecomputations: () => void;
 } & {
-    argsMemoize: typeof import('reselect').weakMapMemoize;
-    memoize: typeof import('reselect').weakMapMemoize;
+    argsMemoize: typeof import('@reduxjs/toolkit').weakMapMemoize;
+    memoize: typeof import('@reduxjs/toolkit').weakMapMemoize;
 };

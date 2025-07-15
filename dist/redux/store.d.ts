@@ -5,14 +5,14 @@ export declare const store: import('@reduxjs/toolkit').EnhancedStore<{
     network: import('../types/network').NetworkState;
     transaction: import('./types/state').TransactionState;
     accounts: import('./types/state').AccountState;
-}, import('redux').UnknownAction, import('@reduxjs/toolkit').Tuple<[import('redux').StoreEnhancer<{
+}, import('@reduxjs/toolkit').UnknownAction, import('@reduxjs/toolkit').Tuple<[import('@reduxjs/toolkit').StoreEnhancer<{
     dispatch: ThunkDispatch<{
         wallet: import('./types/state').WalletState;
         network: import('../types/network').NetworkState;
         transaction: import('./types/state').TransactionState;
         accounts: import('./types/state').AccountState;
-    }, undefined, import('redux').UnknownAction>;
-}>, import('redux').StoreEnhancer]>>;
+    }, undefined, import('@reduxjs/toolkit').UnknownAction>;
+}>, import('@reduxjs/toolkit').StoreEnhancer]>>;
 export type AppStore = typeof store;
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

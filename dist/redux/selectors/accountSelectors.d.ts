@@ -34,8 +34,8 @@ export declare const selectOrderedAccounts: ((state: {
     dependencyRecomputations: () => number;
     resetDependencyRecomputations: () => void;
 } & {
-    argsMemoize: typeof import('reselect').weakMapMemoize;
-    memoize: typeof import('reselect').weakMapMemoize;
+    argsMemoize: typeof import('@reduxjs/toolkit').weakMapMemoize;
+    memoize: typeof import('@reduxjs/toolkit').weakMapMemoize;
 };
 export declare const selectCurrentWOTSKeyPair: ((state: {
     wallet: import('../types/state').WalletState;
@@ -76,8 +76,8 @@ export declare const selectCurrentWOTSKeyPair: ((state: {
     dependencyRecomputations: () => number;
     resetDependencyRecomputations: () => void;
 } & {
-    argsMemoize: typeof import('reselect').weakMapMemoize;
-    memoize: typeof import('reselect').weakMapMemoize;
+    argsMemoize: typeof import('@reduxjs/toolkit').weakMapMemoize;
+    memoize: typeof import('@reduxjs/toolkit').weakMapMemoize;
 };
 export declare const selectNextWOTSKeyPair: ((state: {
     wallet: import('../types/state').WalletState;
@@ -118,6 +118,6 @@ export declare const selectNextWOTSKeyPair: ((state: {
     dependencyRecomputations: () => number;
     resetDependencyRecomputations: () => void;
 } & {
-    argsMemoize: typeof import('reselect').weakMapMemoize;
-    memoize: typeof import('reselect').weakMapMemoize;
+    argsMemoize: typeof import('@reduxjs/toolkit').weakMapMemoize;
+    memoize: typeof import('@reduxjs/toolkit').weakMapMemoize;
 };

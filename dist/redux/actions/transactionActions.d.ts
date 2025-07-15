@@ -5,7 +5,7 @@ interface SendTransactionParams {
 }
 export declare const sendTransactionAction: import('@reduxjs/toolkit').AsyncThunk<string, SendTransactionParams, {
     state?: unknown;
-    dispatch?: import('redux-thunk').ThunkDispatch<unknown, unknown, import('redux').UnknownAction>;
+    dispatch?: import('@reduxjs/toolkit').ThunkDispatch<unknown, unknown, import('@reduxjs/toolkit').UnknownAction>;
     extra?: unknown;
     rejectValue?: unknown;
     serializedErrorType?: unknown;

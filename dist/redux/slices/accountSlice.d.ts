@@ -33,5 +33,5 @@ export declare const selectOrderedAccounts: (state: {
     isDeleted?: boolean;
     id: string;
 }[];
-declare const _default: import('redux').Reducer<AccountState>;
+declare const _default: import('@reduxjs/toolkit').Reducer<AccountState>;
 export default _default;

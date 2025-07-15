@@ -1,3 +1,4 @@
+export * from './network';
 export * from './types';
 export { MasterSeed } from './core/MasterSeed';
 export * from './network/proxyNetworkService';

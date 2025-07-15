@@ -4,5 +4,5 @@ export declare const setBlockHeight: import('@reduxjs/toolkit').ActionCreatorWit
     isConnected: boolean;
     error?: string;
 }, "network/setNetworkStatus">;
-declare const _default: import('redux').Reducer<NetworkState>;
+declare const _default: import('@reduxjs/toolkit').Reducer<NetworkState>;
 export default _default;
