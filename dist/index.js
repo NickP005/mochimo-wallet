@@ -13921,7 +13921,7 @@ const pi = (e, r) => async (t) => {
     const n = be.getStorage(), o = _e.getInstance(), i = o.getMasterSeed(), c = t(), s = c.wallet.highestAccountIndex + 1, u = i.deriveAccount(s), a = {
       name: e || "Account " + (s + 1),
       type: "standard",
-      faddress: "0x" + Buffer.from(u.address).toString("hex").slice(0, 40),
+      faddress: Buffer.from(u.address).toString("hex"),
       balance: "0",
       index: s,
       tag: u.tag,
@@ -14030,7 +14030,7 @@ const pi = (e, r) => async (t) => {
         return {
           name: f.name || `Imported Account ${x + 1}`,
           type: t === "mnemonic" ? "standard" : "imported",
-          faddress: "0x" + Buffer.from(f.address).toString("hex").slice(0, 40),
+          faddress: f.address,
           balance: "0",
           index: t === "mnemonic" ? h + 1 + x : void 0,
           // Continue from current highest
@@ -14067,23 +14067,22 @@ const Mc = qt(
   [gi],
   (e) => {
     if (!e) return null;
-    let r;
     if (e.wotsIndex === -1)
-      return r = Buffer.from(e.faddress, "hex").toString("hex").slice(0, 40), {
-        address: "0x" + r,
+      return {
+        address: e.faddress,
         secret: e.seed,
-        wotsWallet: Mt.create("test", Buffer.from(e.seed, "hex"), void 0, (i) => {
-          const c = Buffer.from(e.faddress, "hex");
-          for (let s = 0; s < c.length; s++)
-            i[s] = c[s];
+        wotsWallet: Mt.create("test", Buffer.from(e.seed, "hex"), void 0, (o) => {
+          const i = Buffer.from(e.faddress, "hex");
+          for (let c = 0; c < i.length; c++)
+            o[c] = i[c];
         })
       };
-    const { address: t, secret: n, wotsWallet: o } = It.deriveWotsSeedAndAddress(
+    const { address: r, secret: t, wotsWallet: n } = It.deriveWotsSeedAndAddress(
       Buffer.from(e.seed, "hex"),
       e.wotsIndex,
       e.tag
     );
-    return r = Buffer.from(t).toString("hex").slice(0, 40), { address: "0x" + r, secret: Buffer.from(n).toString("hex"), wotsWallet: o };
+    return { address: Buffer.from(r).toString("hex"), secret: Buffer.from(t).toString("hex"), wotsWallet: n };
   }
 ), Pc = qt(
   [gi],
@@ -14098,7 +14097,7 @@ const Mc = qt(
       e.tag
     );
     return {
-      address: "0x" + Buffer.from(r).toString("hex").slice(0, 40),
+      address: Buffer.from(r).toString("hex"),
       secret: Buffer.from(t).toString("hex"),
       wotsWallet: n
     };

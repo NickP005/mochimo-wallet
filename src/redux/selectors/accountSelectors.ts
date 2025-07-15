@@ -21,13 +21,9 @@ export const selectCurrentWOTSKeyPair = createSelector(
     [selectSelectedAccount],
     (account) => {
         if (!account) return null;
-        let addressHex: string;
         if (account.wotsIndex === -1) {
-            addressHex = Buffer.from(account.faddress, 'hex').toString('hex').slice(0, 40);
             return {
-                address: '0x' + addressHex,
-                secret: account.seed,
-                wotsWallet: WOTSWallet.create('test', Buffer.from(account.seed, 'hex'), undefined, (bytes) => {
+                address: account.faddress, secret: account.seed, wotsWallet: WOTSWallet.create('test', Buffer.from(account.seed, 'hex'), undefined, (bytes) => {
                     const addrHex = Buffer.from(account.faddress, 'hex')
                     for (let i = 0; i < addrHex.length; i++) {
                         bytes[i] = addrHex[i]
@@ -41,8 +37,7 @@ export const selectCurrentWOTSKeyPair = createSelector(
             account.wotsIndex,
             account.tag
         );
-        addressHex = Buffer.from(address).toString('hex').slice(0, 40);
-        return { address: '0x' + addressHex, secret: Buffer.from(secret).toString('hex'), wotsWallet };
+        return { address: Buffer.from(address).toString('hex'), secret: Buffer.from(secret).toString('hex'), wotsWallet };
     }
 );
 
@@ -63,9 +58,8 @@ export const selectNextWOTSKeyPair = createSelector(
             account.tag
         );
 
-        const addressHex = Buffer.from(address).toString('hex').slice(0, 40);
         return {
-            address: '0x' + addressHex,
+            address: Buffer.from(address).toString('hex'),
             secret: Buffer.from(secret).toString('hex'),
             wotsWallet
         };
